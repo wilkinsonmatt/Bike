@@ -10,7 +10,6 @@ function convertToHumanTime(unixtime) {
   return time;
 }
 
-
 function getBikeInfo(response) {
   if (response.bikes) {
     $('.showTitle').html("");
@@ -36,7 +35,6 @@ $(document).ready(function() {
     makeApiCall(zipcode);
   });
 });
-
 
 // "bikes": [
 //   {
