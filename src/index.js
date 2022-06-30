@@ -12,11 +12,10 @@ function convertToHumanTime(unixtime) {
 
 function getBikeInfo(response) {
   if (response.bikes) {
-    console.log("bye");
+    $('.showTitle').html("");
     for(let i = 0; i < response.bikes.length; i++) { 
-      console.log("hi");
-      //$('#work-responses').append(workTransportationMode + "<br>");
-      $('.showTitle').append("<b>Bike " + i + ": " + "</b>" + response.bikes[i].title + " was stolen " + convertToHumanTime(response.bikes[i].date_stolen) + "<br>");
+      let a = i+1;
+      $('.showTitle').append("<b>Bike " + a + ": " + "</b>" + response.bikes[i].title + " was stolen " + convertToHumanTime(response.bikes[i].date_stolen) + "<br>");
     }
   } else {
     $('.showErrors').text(`There was an error: ${response}`);
@@ -32,6 +31,7 @@ async function makeApiCall(zipcode) {
 $(document).ready(function() {
   $('#bikeLocation').click(function() {
     let zipcode = parseInt($('#zipcode').val());
+
     makeApiCall(zipcode);
   });
 });
